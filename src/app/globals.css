@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- COLOR PALETTE --- */
+  --color-main: #3B68AB;
+  --color-main-hover: #164B96;
+  --color-text-main: #505050;
+  
+  --color-accent-1: #A2BD6C;
+  --color-accent-2: #E09FD1;
+  --color-accent-3: #E8B534;
+  --color-accent-3-hover: #D9A92F;
+  
+  --color-bg-1: #C5E1F3;
+  --color-bg-2: #DFEBF3;
+  --color-navbar-bg: #E9F9FE;
+
+  /* --- FONTS --- */
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-nunito: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-patrick: var(--font-patrick-hand), cursive;
+}
+
+@layer utilities {
+  /* --- HEADINGS (Nunito) --- */
+  .text-h1 {
+    font-family: var(--font-nunito);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    
+    @media (min-width: 768px) { font-size: 48px; line-height: 56px; }
+    @media (min-width: 1024px) { font-size: 56px; line-height: 70px; letter-spacing: -0.01em; }
+  }
+
+  .text-h2 {
+    font-family: var(--font-nunito);
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 36px;
+    
+    @media (min-width: 768px) { font-size: 36px; line-height: 44px; }
+    @media (min-width: 1024px) { font-size: 40px; line-height: 48px; }
+  }
+
+  .text-h3 {
+    font-family: var(--font-nunito);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 30px;
+    
+    @media (min-width: 768px) { font-size: 24px; line-height: 32px; }
+    @media (min-width: 1024px) { font-size: 28px; line-height: 36px; }
+  }
+
+  .text-h4 {
+    font-family: var(--font-nunito);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    
+    @media (min-width: 768px) { font-size: 18px; line-height: 26px; }
+    @media (min-width: 1024px) { font-size: 20px; line-height: 28px; }
+  }
+
+  /* --- BODY (Inter) --- */
+  .text-body-large {
+    font-family: var(--font-inter);
+    font-size: 16px;
+    line-height: 24px;
+    
+    @media (min-width: 768px) { font-size: 17px; line-height: 26px; }
+    @media (min-width: 1024px) { font-size: 18px; line-height: 28px; }
+  }
+
+  .text-body-regular {
+    font-family: var(--font-inter);
+    font-size: 14px;
+    line-height: 22px;
+    
+    @media (min-width: 768px) { font-size: 15px; line-height: 22px; }
+    @media (min-width: 1024px) { font-size: 16px; line-height: 24px; }
+  }
+
+  .text-body-caption {
+    font-family: var(--font-inter);
+    font-size: 12px;
+    line-height: 18px;
+    
+    @media (min-width: 768px) { font-size: 13px; line-height: 18px; }
+    @media (min-width: 1024px) { font-size: 14px; line-height: 20px; }
+  }
+
+  /* --- ACCENT (Patrick Hand) --- */
+  .text-accent-hand {
+    font-family: var(--font-patrick);
+    font-size: 16px;
+    line-height: 22px;
+    
+    @media (min-width: 768px) { font-size: 17px; line-height: 22px; }
+    @media (min-width: 1024px) { font-size: 18px; line-height: 24px; }
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+}
