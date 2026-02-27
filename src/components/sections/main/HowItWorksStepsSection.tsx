@@ -7,17 +7,39 @@ const bannerItems = [
   { label: "Repeat", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg> },
   { label: "Tap a card", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2.5a2.5 2.5 0 0 1 2.5 2.5c0 1.38-1.12 2.5-2.5 2.5S9.5 6.38 9.5 5 10.62 2.5 12 2.5z"/><path d="M16 12a2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 0 5A2.5 2.5 0 0 1 16 12z"/><path d="M8 12a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 3.5 12a2.5 2.5 0 0 1 5 0z"/><path d="M12 21.5a2.5 2.5 0 0 1-2.5-2.5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/><circle cx="12" cy="12" r="2"/></svg> },
   { label: "Listen", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg> },
-  { label: "Imagine", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg> }
+  { label: "Imagine", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg> }
 ];
 
 // Ekranı doldurması için diziyi 4 kez tekrarlıyoruz
 const repeatedBannerItems = [...bannerItems, ...bannerItems, ...bannerItems, ...bannerItems];
 
+// YENİ: MOBİL İÇİN DİKEY ADIMLAR VERİSİ
+const mobileSteps = [
+  {
+    id: 1,
+    title: "Tap",
+    desc: "Choose a card and place\nit on LunoBox.",
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><path d="M12 13.5c-1.5-1.5-2.5-2.5-2.5-3.5a2 2 0 1 1 4 0c0 1-1 2-2.5 3.5z"></path></svg>
+  },
+  {
+    id: 2,
+    title: "Listen & Explore",
+    desc: "Stories, sounds, and\nplayful audio begin.",
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+  },
+  {
+    id: 3,
+    title: "Turn to choose a\nway to play",
+    desc: "Simple, tactile, and\nchild-led.",
+    icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+  }
+];
+
 export const HowItWorksSection = () => {
   return (
     <section className="w-full bg-[#DFEBF3] pb-[80px] md:pb-[120px] overflow-hidden flex flex-col">
       
-      {/* Figma'daki 80px yüksekliğindeki Mavi Şerit */}
+      {/* Mavi Şerit */}
       <div className="w-full h-[80px] bg-[#3B68AB] flex items-center overflow-hidden mb-[60px] md:mb-[100px] shadow-sm">
         <div className="flex items-center gap-[40px] px-[20px] w-max whitespace-nowrap text-white font-extrabold text-[24px]">
           {repeatedBannerItems.map((item, index) => (
@@ -32,7 +54,7 @@ export const HowItWorksSection = () => {
       <div className="max-w-[1280px] mx-auto px-[16px] md:px-[40px] w-full">
         
         {/* Üst Kısım: Başlık ve Alt Metin */}
-        <div className="flex flex-col items-center text-center mb-[80px]">
+        <div className="flex flex-col items-center text-center mb-[60px] md:mb-[80px]">
           <h2 className="text-[40px] md:text-[56px] font-extrabold text-[#3A5B93] tracking-tight flex items-center justify-center gap-[16px] mb-[16px]">
             How it
             <span className="inline-block bg-[#4168A6] text-white px-[24px] py-[4px] rounded-[16px] -rotate-2 shadow-sm">
@@ -44,12 +66,12 @@ export const HowItWorksSection = () => {
           </p>
         </div>
 
-        {/* Alt Kısım: SADECE YENİ SVG'LER */}
-        <div className="flex flex-col xl:flex-row items-center justify-between gap-[40px] relative w-full">
+        {/* Alt Kısım: Görseller ve Mobil Düzen */}
+        <div className="flex flex-col xl:flex-row items-center justify-between gap-[40px] xl:gap-[20px] relative w-full">
           
-          {/* Sol Taraf: Adımlar SVG'si (Senin 779x200 ölçülerine göre kilitlendi) */}
+          {/* MASAÜSTÜ: Adımlar SVG'si (Mobilde gizlenir) */}
           <div 
-            className="w-full flex justify-center xl:justify-start"
+            className="hidden xl:flex w-full justify-start shrink-0"
             style={{ maxWidth: '779px' }}
           >
             <img 
@@ -59,10 +81,39 @@ export const HowItWorksSection = () => {
             />
           </div>
 
-          {/* Sağ Taraf: LunoBox SVG'si (Senin 411x470 ölçülerine göre kilitlendi) 
-              Tüm eski doodle'lar ve çizgiler buradan silindi! */}
+          {/* MOBİL: Dikey Adımlar Listesi (Masaüstünde gizlenir) */}
+          <div className="flex xl:hidden flex-col gap-[16px] w-full max-w-[400px]">
+            {mobileSteps.map((step) => (
+              <div key={step.id} className="flex items-start gap-[20px]">
+                
+                {/* Sol Taraf: İkon ve Kesik Çizgi */}
+                <div className="flex flex-col items-center">
+                  <div className="w-[60px] h-[60px] rounded-full bg-[#3A5B93] text-white flex items-center justify-center shrink-0 shadow-md">
+                    {step.icon}
+                  </div>
+                  {/* Son adım hariç aralara dikey kesik çizgi ekliyoruz */}
+                  {step.id !== 3 && (
+                    <div className="w-[2px] h-[40px] border-l-[2px] border-dashed border-[#4168A6]/30 mt-[12px]"></div>
+                  )}
+                </div>
+                
+                {/* Sağ Taraf: Metinler */}
+                <div className="pt-[8px]">
+                  <h4 className="font-extrabold text-[#3A5B93] text-[18px] mb-[6px] whitespace-pre-line leading-tight">
+                    {step.title}
+                  </h4>
+                  <p className="text-[#3A5B93]/80 text-[15px] font-medium leading-relaxed whitespace-pre-line">
+                    {step.desc}
+                  </p>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+          {/* Sağ Taraf: LunoBox SVG'si (Hem mobilde hem masaüstünde görünür) */}
           <div 
-            className="w-full flex justify-center xl:justify-end mt-[40px] xl:mt-0 shrink-0"
+            className="w-full flex justify-center xl:justify-end mt-[20px] xl:mt-0 shrink-0"
             style={{ maxWidth: '411px' }}
           >
             <img 

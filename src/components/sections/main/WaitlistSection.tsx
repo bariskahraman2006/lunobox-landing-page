@@ -35,34 +35,41 @@ export const WaitlistSection = () => {
   };
 
   return (
-    <section id="waitlist" className="w-full bg-[#DFEBF3] py-[80px] md:py-[120px] overflow-hidden flex justify-center px-[16px] md:px-[40px]">
+    <section id="waitlist" className="relative w-full bg-[#DFEBF3] py-[60px] md:py-[120px] overflow-hidden flex justify-center px-[16px] md:px-[40px]">
       
-      {/* ANA MAVİ KONTEYNER: Tam 1280x588 ölçülerinde ve #3B68AB renginde */}
-      <div className="relative w-full max-w-[1280px] min-h-[588px] bg-[#3B68AB] rounded-[40px] flex flex-col items-center justify-center px-[20px] py-[60px] z-10 shadow-lg">
+      {/* YEŞİL KOL (Sadece geniş ekranlarda gösterilecek şekilde 'hidden lg:block' eklendi) */}
+      <img 
+        src="/images/waitlist-arm.svg" 
+        alt="Pointing Arm" 
+        className="absolute right-0 top-[65%] -translate-y-1/2 w-[350px] lg:w-[450px] pointer-events-none z-20 drop-shadow-lg hidden lg:block" 
+      />
 
-        {/* Arkadan geçen kesik çizgi */}
-        <div className="absolute top-[48%] left-[15%] right-[15%] border-t-[1px] border-dashed border-white/30 z-0"></div>
+      {/* ANA KONTEYNER */}
+      <div className="relative w-full max-w-[1280px] min-h-[588px] flex flex-col items-center justify-center px-[20px] py-[60px] z-10">
 
-        {/* SENİN KAYDEDECEĞİN SVG: Sağdaki Yeşil Kol */}
+        {/* MASAÜSTÜ İÇİN SVG ARKA PLAN */}
         <img 
-          src="/images/waitlist-arm.svg" 
-          alt="Pointing Arm" 
-          className="absolute right-[-20px] md:right-[-40px] top-[55%] -translate-y-1/2 w-[220px] md:w-[350px] pointer-events-none z-20 drop-shadow-lg" 
+          src="/images/waitlist-blue-label.svg" 
+          alt="Blue Background Label" 
+          className="absolute inset-0 w-full h-full object-contain z-0 pointer-events-none drop-shadow-lg hidden lg:block mx-auto" 
         />
+        
+        {/* MOBİL İÇİN TEMİZ ARKA PLAN (Sünmüş SVG yerine yuvarlak köşeli kutu) */}
+        <div className="absolute inset-0 w-full h-full bg-[#3B68AB] rounded-[32px] z-0 lg:hidden shadow-lg"></div>
 
         {/* İçerik ve Metinler */}
-        <div className="relative z-10 flex flex-col items-center text-center">
+        <div className="relative z-10 flex flex-col items-center text-center w-full">
           
           <span className="text-white/80 font-medium text-[15px] mb-[12px]">
             Join the Journey
           </span>
 
-          <h2 className="text-[40px] md:text-[56px] font-extrabold text-white leading-[1.1] mb-[24px]">
+          <h2 className="text-[36px] md:text-[56px] font-extrabold text-white leading-[1.1] mb-[24px]">
             LunoBox is coming.<br />
             Slowly. Thoughtfully.
           </h2>
 
-          <div className="text-white/90 text-[16px] md:text-[18px] mb-[40px] max-w-[650px] leading-relaxed">
+          <div className="text-white/90 text-[15px] md:text-[18px] mb-[40px] max-w-[650px] leading-relaxed">
             <p>LunoBox isn't available just yet.</p>
             <p>We're taking the time to get it right — from stories to cards to sound design.</p>
             <p>Join the list to be the first to know when we're ready.</p>
@@ -112,7 +119,7 @@ export const WaitlistSection = () => {
               <button 
                 type="submit" 
                 disabled={status === 'loading'}
-                className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold text-[18px] px-[40px] py-[14px] rounded-full shadow-md transition-transform hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0"
+                className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold text-[16px] md:text-[18px] px-[32px] md:px-[40px] py-[14px] rounded-full shadow-md transition-transform hover:-translate-y-1 disabled:opacity-70 disabled:hover:translate-y-0"
               >
                 {status === 'loading' ? 'Joining...' : 'Join the waitlist'}
               </button>

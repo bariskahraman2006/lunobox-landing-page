@@ -13,18 +13,18 @@ export const Navbar = () => {
     { href: '/how-it-works', label: 'How It Works' },
     { href: '/lunobox', label: 'LunoBox' },
     { href: '/card-packs', label: 'Card Packs' },
-    { href: '#faq', label: 'FAQ' },
+    // DÜZELTME 1: '#faq' yerine '/faq' yazıldı. Artık ayrı sayfaya gidecek!
+    { href: '/faq', label: 'FAQ' }, 
     { href: '/contact', label: 'Contact' },
   ];
 
-  // DÜZELTME: Hangi sayfada olduğumuzu kontrol edip ona göre arkaplan rengini belirliyoruz
+  // Hangi sayfada olduğumuzu kontrol edip ona göre arkaplan rengini belirliyoruz
   const isSpecialPage = pathname === '/' || pathname === '/how-it-works';
   const navBgColor = isSpecialPage ? 'bg-[#C5E1F3]' : 'bg-[#DFEBF3]';
 
   return (
     <>
-      {/* Navbar sınıfına statik renk yerine dinamik `${navBgColor}` değişkeni eklendi!
-      */}
+      {/* Navbar sınıfına statik renk yerine dinamik `${navBgColor}` değişkeni eklendi! */}
       <nav className={`absolute top-[15px] left-[16px] right-[16px] lg:left-1/2 lg:-translate-x-1/2 lg:w-full lg:max-w-[1280px] lg:right-auto h-[80px] z-50 ${navBgColor} border-[1px] border-white/70 rounded-[30px] flex items-center justify-between px-[20px] md:px-[40px] shadow-sm transition-all duration-300`}>
         
         {/* LOGO */}
@@ -51,7 +51,8 @@ export const Navbar = () => {
 
         {/* JOIN WAITLIST BUTONU (Sağ Kısım) */}
         <div className="shrink-0 hidden md:block">
-          <Link href="#waitlist">
+          {/* DÜZELTME 2: '#waitlist' yerine '/#waitlist' yapıldı. */}
+          <Link href="/#waitlist">
             <button className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold text-[16px] px-[28px] py-[12px] rounded-full shadow-sm transition-transform hover:-translate-y-[2px]">
               Join Waitlist
             </button>
@@ -81,7 +82,6 @@ export const Navbar = () => {
       </nav>
 
       {/* MOBİL AÇILIR MENÜ */}
-      {/* Mobil menü de aynı şekilde dinamik renk değişkenini (${navBgColor}) kullanıyor */}
       {isMenuOpen && (
         <div className={`absolute top-[105px] left-[16px] right-[16px] ${navBgColor} border-[1px] border-white/70 rounded-[24px] shadow-lg z-40 p-[24px] flex flex-col gap-[16px] lg:hidden animate-in fade-in slide-in-from-top-4`}>
           {navLinks.map((link) => (
@@ -94,7 +94,8 @@ export const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <Link href="#waitlist" className="mt-[8px]" onClick={() => setIsMenuOpen(false)}>
+          {/* DÜZELTME 3: Mobil menüdeki waitlist butonu da '/#waitlist' olarak güncellendi. */}
+          <Link href="/#waitlist" className="mt-[8px]" onClick={() => setIsMenuOpen(false)}>
             <button className="w-full bg-[#F2BA44] text-white font-bold text-[18px] py-[14px] rounded-full shadow-md">
               Join Waitlist
             </button>
