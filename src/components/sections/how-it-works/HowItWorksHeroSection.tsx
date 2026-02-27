@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
+import Link from 'next/link'; // DÜZELTME 1: Next.js Link bileşeni projeye dahil edildi
 
 export const HeroSection = () => {
   return (
@@ -29,10 +30,12 @@ export const HeroSection = () => {
             </p>
           </div>
 
-          {/* Buton: Figma ölçüsü olan 191x37 boyutlarına milimetrik ayarlandı */}
-          <button className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold text-[16px] w-[191px] h-[37px] rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center">
-            See it step by step
-          </button>
+          {/* DÜZELTME 2: Buton bir Link içine alındı ve hedefi '#step-by-step' yapıldı */}
+          <Link href="#step-by-step">
+            <button className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold text-[16px] w-[191px] h-[37px] rounded-full shadow-md transition-transform hover:-translate-y-1 flex items-center justify-center">
+              See it step by step
+            </button>
+          </Link>
 
         </div>
 
@@ -41,7 +44,7 @@ export const HeroSection = () => {
 
           <div className="relative w-full max-w-[600px]">
 
-            {/* 1. YENİ EKLENEN: Kalpli konuşma balonu SVG'si (Sol alt) */}
+            {/* Kalpli konuşma balonu SVG'si (Sol alt) */}
             <img 
               src="/images/doodle-heart-bubble.svg" 
               alt="" 
@@ -55,7 +58,7 @@ export const HeroSection = () => {
               className="w-full h-auto object-cover rounded-[24px] shadow-xl relative z-10" 
             />
 
-            {/* 2. YENİ EKLENEN: Bulut SVG'si (Sağ üst) */}
+            {/* Bulut SVG'si (Sağ üst) */}
             <img 
               src="/images/doodle-cloud-outline.svg" 
               alt="" 

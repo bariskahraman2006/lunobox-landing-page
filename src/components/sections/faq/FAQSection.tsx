@@ -1,6 +1,7 @@
 "use client"; // Akordeon etkileşimi için client component yapıyoruz
 
 import React, { useState } from 'react';
+import Link from 'next/link'; // DÜZELTME 1: Next.js Link bileşeni eklendi
 import { Button } from "@/components/ui/Button";
 
 // Tasarımdaki örnek sorular ve cevapları
@@ -62,9 +63,12 @@ export const FAQSection = () => {
               <p className="text-[#3A5B93] font-bold text-[18px] mb-[16px]">
                 Need more help?
               </p>
-              <Button variant="default" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white shadow-md rounded-full px-[32px] mb-[12px]">
-                Contact Us
-              </Button>
+              {/* DÜZELTME 2: Masaüstü butonu Link içine alındı */}
+              <Link href="/contact">
+                <Button variant="default" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white shadow-md rounded-full px-[32px] mb-[12px]">
+                  Contact Us
+                </Button>
+              </Link>
               <p className="text-[#3A5B93]/80 font-accent-hand text-[16px]">
                 Still have questions?
               </p>
@@ -120,9 +124,12 @@ export const FAQSection = () => {
             <p className="text-[#3A5B93] font-bold text-[18px] mb-[16px]">
               Need more help?
             </p>
-            <Button variant="default" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white shadow-md rounded-full px-[32px] mb-[12px]">
-              Contact Us
-            </Button>
+            {/* DÜZELTME 3: Mobil butonu Link içine alındı */}
+            <Link href="/contact">
+              <Button variant="default" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white shadow-md rounded-full px-[32px] mb-[12px]">
+                Contact Us
+              </Button>
+            </Link>
             <p className="text-[#3A5B93]/80 font-accent-hand text-[16px]">
               Still have questions?
             </p>

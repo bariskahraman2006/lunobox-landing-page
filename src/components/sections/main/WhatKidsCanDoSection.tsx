@@ -22,7 +22,7 @@ export const WhatKidsCanDoSection = () => {
         {/* 3 Renkli Özellik Kartı */}
         <div className="relative w-full max-w-[1000px] flex flex-col md:flex-row justify-between gap-[50px] md:gap-[24px]">
           
-          {/* Arka Plandaki Kesik Çizgi (Masaüstünde tam genişlik, mobilde sadece ortada) */}
+          {/* Arka Plandaki Kesik Çizgi (SADECE Masaüstünde görünür 'hidden md:block') */}
           <div className="hidden md:block absolute top-[50%] left-[-5%] right-[-5%] border-t-[2px] border-dashed border-[#4168A6]/40 z-0"></div>
           
           {/* Kart 1: Mavi (Listen and imagine) */}
@@ -39,10 +39,7 @@ export const WhatKidsCanDoSection = () => {
 
           {/* Kart 2: Yeşil (Learn through play) */}
           <div className="relative w-full md:w-1/3 bg-[#A8C464] rounded-[24px] p-[24px] pt-[40px] text-center shadow-md z-10 flex flex-col items-center">
-            {/* Mobilde arkadan geçen kesik çizgi detayı */}
-            <div className="md:hidden absolute top-[50%] left-[-10%] right-[-10%] border-t-[2px] border-dashed border-[#4168A6]/40 z-[-1]"></div>
-            {/* Mobilde ortadaki X detayı */}
-            <div className="md:hidden absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[16px] h-[16px] border-t-[2px] border-r-[2px] border-[#4168A6]/40 rotate-45 z-[-1]"></div>
+            {/* DÜZELTME: Mobilde arkadan geçen çizgi ve X işareti kodları tamamen silindi! */}
             
             <div className="absolute -top-[24px] w-[56px] h-[56px] bg-[#A8C464] rounded-full flex items-center justify-center border-[6px] border-[#DFEBF3]">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>

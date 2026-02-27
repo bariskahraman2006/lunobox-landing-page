@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'; // DÜZELTME 1: Next.js Link bileşeni eklendi
 import { Button } from "@/components/ui/Button";
 
 export const DiscoverCardpacksSection = () => {
@@ -35,7 +36,7 @@ export const DiscoverCardpacksSection = () => {
             </svg>
           </div>
 
-          {/* YENİ: Tek Parça Kart Grubu (cards-group.svg) */}
+          {/* Tek Parça Kart Grubu */}
           <div className="relative z-10 w-full flex justify-center">
             <img 
               src="/images/cards-group.svg" 
@@ -49,9 +50,12 @@ export const DiscoverCardpacksSection = () => {
 
         {/* Alt Kısım: Buton ve Metin */}
         <div className="flex flex-col items-center mt-[80px]">
-          <Button variant="default" size="large" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold shadow-md text-[18px] md:text-[20px] px-[40px] h-[56px] rounded-full mb-[16px] transition-transform hover:-translate-y-1">
-            Discover Card Packs
-          </Button>
+          {/* DÜZELTME 2: Buton bir Link içine alındı ve hedefi '/card-packs' yapıldı */}
+          <Link href="/card-packs">
+            <Button variant="default" size="large" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white font-bold shadow-md text-[18px] md:text-[20px] px-[40px] h-[56px] rounded-full mb-[16px] transition-transform hover:-translate-y-1">
+              Discover Card Packs
+            </Button>
+          </Link>
           <p className="text-[#3A5B93]/80 font-accent-hand text-[16px] md:text-[18px]">
             Each card pack is designed for a different age and interest.
           </p>

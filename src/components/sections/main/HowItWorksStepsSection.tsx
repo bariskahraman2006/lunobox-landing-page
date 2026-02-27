@@ -37,7 +37,7 @@ const mobileSteps = [
 
 export const HowItWorksSection = () => {
   return (
-    <section className="w-full bg-[#DFEBF3] pb-[80px] md:pb-[120px] overflow-hidden flex flex-col">
+    <section id="how-it-works" className="w-full bg-[#DFEBF3] pb-[80px] md:pb-[120px] overflow-hidden flex flex-col">
       
       {/* Mavi Şerit */}
       <div className="w-full h-[80px] bg-[#3B68AB] flex items-center overflow-hidden mb-[60px] md:mb-[100px] shadow-sm">

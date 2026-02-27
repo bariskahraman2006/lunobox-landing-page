@@ -11,7 +11,7 @@ const mobileSteps = [
 
 export const StepByStepTimelineSection = () => {
   return (
-    <section className="w-full bg-[#DFEBF3] py-[60px] md:py-[100px] overflow-hidden">
+    <section id="step-by-step" className="w-full bg-[#DFEBF3] py-[60px] md:py-[100px] overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-[16px] md:px-[40px] flex flex-col items-center">
         
         {/* Başlık Alanı */}
