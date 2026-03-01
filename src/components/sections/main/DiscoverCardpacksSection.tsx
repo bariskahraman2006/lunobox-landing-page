@@ -32,7 +32,8 @@ export const DiscoverCardpacksSection = () => {
           {/* Arka Plandaki Dalgalı Çizgi */}
           <div className="absolute top-1/2 left-[50%] z-0 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden w-[200vw] flex justify-center pointer-events-none">
             <svg width="2400" height="40" viewBox="0 0 2400 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 20 Q 60 0 120 20 T 240 20 T 360 20 T 480 20 T 600 20 T 720 20 T 840 20 T 960 20 T 1080 20 T 1200 20 T 1320 20 T 1440 20 T 1560 20 T 1680 20 T 1800 20 T 1920 20 T 2040 20 T 2160 20 T 2280 20 T 2400 20" stroke="#4168A6" strokeWidth="3" strokeDasharray="8 8" opacity="0.3"/>
+              {/* SADECE BURASI DEĞİŞTİ: stroke rengi #88ACE2 oldu ve net görünmesi için opacity kaldırıldı */}
+              <path d="M0 20 Q 60 0 120 20 T 240 20 T 360 20 T 480 20 T 600 20 T 720 20 T 840 20 T 960 20 T 1080 20 T 1200 20 T 1320 20 T 1440 20 T 1560 20 T 1680 20 T 1800 20 T 1920 20 T 2040 20 T 2160 20 T 2280 20 T 2400 20" stroke="#88ACE2" strokeWidth="3" strokeDasharray="8 8" />
             </svg>
           </div>
 

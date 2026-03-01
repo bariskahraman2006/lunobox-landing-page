@@ -1,7 +1,7 @@
 "use client"; // Akordeon etkileşimi için client component yapıyoruz
 
 import React, { useState } from 'react';
-import Link from 'next/link'; // DÜZELTME 1: Next.js Link bileşeni eklendi
+import Link from 'next/link'; 
 import { Button } from "@/components/ui/Button";
 
 // Tasarımdaki örnek sorular ve cevapları
@@ -34,7 +34,6 @@ const faqs = [
 ];
 
 export const FAQSection = () => {
-  // İlk sorunun varsayılan olarak açık gelmesi için id'sini (1) state'e veriyoruz
   const [openId, setOpenId] = useState<number | null>(1);
 
   const toggleFAQ = (id: number) => {
@@ -46,24 +45,26 @@ export const FAQSection = () => {
       <div className="max-w-[1000px] mx-auto px-[16px] md:px-[40px]">
         
         {/* CSS Flex/Grid ile Mobil ve Masaüstü Yerleşimi */}
-        <div className="flex flex-col md:flex-row gap-[40px] md:gap-[80px] relative">
+        <div className="flex flex-col md:flex-row gap-[40px] md:gap-[60px] lg:gap-[80px] relative">
           
-          {/* Sol Sütun: Başlık ve "Daha fazla yardım" (Masaüstünde Sabit/Sticky) */}
-          <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left md:sticky md:top-[160px] h-fit z-10">
-            <h1 className="text-[36px] md:text-[44px] font-extrabold text-[#3A5B93] leading-[1.1] tracking-tight flex flex-col items-center md:items-start gap-[8px] mb-[40px]">
-              Frequently Asked
-              {/* Harika Detay: Mobilde Sarı, Masaüstünde Yeşil Rozet */}
-              <span className="inline-block bg-[#F2BA44] md:bg-[#A8C464] text-white px-[20px] py-[4px] rounded-[16px] -rotate-3 shadow-sm">
+          {/* 1. DÜZELTME: Sol Sütun genişliği w-1/3 yerine Figma'daki 335px'e kilitlendi (shrink-0 ile ezilmesi engellendi) */}
+          <div className="w-full md:w-[335px] shrink-0 flex flex-col items-center md:items-start text-center md:text-left md:sticky md:top-[160px] h-fit z-10">
+            
+            <h1 className="text-[36px] md:text-[44px] font-extrabold text-[#3A5B93] leading-[1.1] tracking-tight flex flex-col items-center md:items-start gap-[8px] mb-[40px] w-full">
+              {/* 2. DÜZELTME: whitespace-nowrap ile "Frequently Asked" kelimesinin tek satırda kalması garanti altına alındı */}
+              <span className="md:whitespace-nowrap">Frequently Asked</span>
+              
+              {/* Rozet */}
+              <span className="inline-block bg-[#F2BA44] md:bg-[#A8C464] text-white px-[20px] py-[4px] rounded-[16px] -rotate-3 shadow-sm w-max mt-[4px]">
                 Questions
               </span>
             </h1>
 
-            {/* MASAÜSTÜ: "Daha fazla yardım" alanı (Mobilde gizli, sol sütunda kalıyor) */}
-            <div className="hidden md:flex flex-col items-start mt-[40px]">
+            {/* MASAÜSTÜ: "Daha fazla yardım" alanı */}
+            <div className="hidden md:flex flex-col items-start mt-[20px]">
               <p className="text-[#3A5B93] font-bold text-[18px] mb-[16px]">
                 Need more help?
               </p>
-              {/* DÜZELTME 2: Masaüstü butonu Link içine alındı */}
               <Link href="/contact">
                 <Button variant="default" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white shadow-md rounded-full px-[32px] mb-[12px]">
                   Contact Us
@@ -75,9 +76,9 @@ export const FAQSection = () => {
             </div>
           </div>
 
-          {/* Sağ Sütun: Akordeon Soru Listesi */}
-          <div className="w-full md:w-2/3 flex flex-col gap-[16px] z-10">
-            {/* Ortadaki o yatay kesik mavi çizgi detayı (Mobilde 3. sorunun arkasında görünüyor) */}
+          {/* 3. DÜZELTME: Sağ Sütun w-2/3 yerine kalan alanı tamamen kaplaması için 'flex-1' yapıldı */}
+          <div className="w-full flex-1 flex flex-col gap-[16px] z-10">
+            {/* Ortadaki kesik mavi çizgi (Mobilde) */}
             <div className="md:hidden absolute top-[50%] left-[10%] right-[10%] border-t-[2px] border-dashed border-[#4168A6]/40 z-[-1] flex items-center justify-center">
               <div className="absolute w-[16px] h-[16px] border-t-[2px] border-r-[2px] border-[#4168A6]/40 rotate-45 bg-[#DFEBF3]"></div>
             </div>
@@ -90,7 +91,6 @@ export const FAQSection = () => {
                   key={faq.id} 
                   className="bg-white rounded-[16px] md:rounded-[20px] shadow-sm border-[1px] border-white/50 overflow-hidden transition-all duration-300"
                 >
-                  {/* Akordeon Başlığı (Tıklanabilir Alan) */}
                   <button 
                     onClick={() => toggleFAQ(faq.id)}
                     className="w-full flex items-center justify-between p-[20px] md:p-[24px] text-left focus:outline-none group"
@@ -99,13 +99,11 @@ export const FAQSection = () => {
                       {faq.question}
                     </h3>
                     
-                    {/* Sağdaki Yuvarlak Ok İkonu */}
                     <div className={`w-[32px] h-[32px] md:w-[36px] md:h-[36px] flex-shrink-0 rounded-full bg-[#4168A6] text-white flex items-center justify-center transition-transform duration-300 shadow-sm ${isOpen ? 'rotate-180 bg-[#3A5B93]' : ''}`}>
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                   </button>
 
-                  {/* Akordeon İçeriği (Cevap) */}
                   <div 
                     className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0'}`}
                   >
@@ -119,12 +117,11 @@ export const FAQSection = () => {
             })}
           </div>
 
-          {/* MOBİL: "Daha fazla yardım" alanı (Sadece mobilde en altta görünür) */}
+          {/* MOBİL: "Daha fazla yardım" alanı */}
           <div className="md:hidden w-full flex flex-col items-center text-center mt-[40px] z-10">
             <p className="text-[#3A5B93] font-bold text-[18px] mb-[16px]">
               Need more help?
             </p>
-            {/* DÜZELTME 3: Mobil butonu Link içine alındı */}
             <Link href="/contact">
               <Button variant="default" className="bg-[#F2BA44] hover:bg-[#E0A832] text-white shadow-md rounded-full px-[32px] mb-[12px]">
                 Contact Us
